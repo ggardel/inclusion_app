@@ -1,0 +1,13 @@
+<div id="login">
+	Username: <input ng-model="login.loginUsername">
+	Password: <input type="password" ng-model="login.loginPassword">
+	<button ng-click="login.login()">Login</button>
+</div>
+
+<div id="register">
+	Username: <input ng-model="login.registerUsername">
+	Password: <input type="password" ng-model="login.registerPassword">
+	<button ng-click="login.register()">Register</button>
+</div>
+
+<div>{{ login.errors }}</div>
