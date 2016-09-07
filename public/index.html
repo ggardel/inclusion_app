@@ -2,17 +2,38 @@
 <html ng-app="inclusion_app">
 <head>
 	<title>Inclusion.com</title>
+
+	<link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css ">
+	<!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+	<nav>
+	<!-- <a ng-click="user.logout()">Logout</a> -->
+	<!-- <a ui-sref="user.logout()">logout</a> -->
+	<a ui-sref="profile">profile</a>
+</nav>
+
 
 	<!-- Partials inserted here -->
 	<div ui-view></div>
-
+	<!-- Jquery -->
+  <script   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+   <!-- Angular -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular.js"></script>
+    <!-- ui-router -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+     <!-- ng-file-upload -->
+		 <!-- Libraries -->
+	<script src="/node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+  <script src="/node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+	<script src="/node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+	  <!-- javascripts -->
 	<script src="/javascripts/app.js"></script>
+	<script src="/javascripts/Services/UserService.js"></script>
 	<script src="/javascripts/controllers/LoginController.js"></script>
 	<script src="/javascripts/controllers/UserController.js"></script>
+	<script src="/javascripts/controllers/ProfileController.js"></script>
 </body>
 </html>

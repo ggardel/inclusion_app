@@ -15,7 +15,7 @@ function UserController ($http, $state) {
 			token: localStorage.token
 		}
 	}).then(function (response) {
-		console.log(response)
+		console.log(response.data)
 		self.username = response.data.username
 
 		// stay away hackers!

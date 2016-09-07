@@ -1,0 +1,35 @@
+
+
+<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController">
+
+<div class="row"><div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+    accept="image/*" >Select</div></div>
+
+<div class="row">
+    <input class="form-control" ng-model="user.username" ng-blur="update.name">
+</div>
+
+<div class="row">
+    <textarea class="form-control" ng-model="profile.update" ng-blur="profile.update()"> </textarea>
+</div>
+
+    </div>
+{{ profile.user.name }}
+
+
+<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController">
+  <div class="row">name:
+      <input class="form-control" ng-model="user.username" ng-blur="update()">
+
+
+      <form id="profile-form" class="form-inline">
+      <div class="form-group">
+        <input type="text"  id="pledge-content" placeholder="Name!" class="form-control" ng-model="profile.user.name" />
+      </div>
+
+      <button class="btn btn-success btn-sm s" type="submit" ng-click="profile.create(name)">Save My Name</button>
+    </form>
+
+  </div>
+
+</div>

@@ -29,7 +29,7 @@ function login (req, res, next) {
 				return false
 			}
 			if (verified) {
-				res.json({ token: createToken(user) })
+				res.json({ user: user, token: createToken(user) })
 			}
 			else {
 				res.json({ error: "Password is incorrect" })
@@ -65,8 +65,11 @@ function register (req, res, next) {
 				return false
 			}
 			var user = new User({
-				username: username,
-				password_hash: hash
+				username: req.body.username,
+				password_hash: hash,
+				image: req.body.image,
+				name: req.body.name
+
 			})
 			user.save(function (err, user) {
 				if (err) {
@@ -74,7 +77,7 @@ function register (req, res, next) {
 					return false
 				}
 				// Everything worked, send back a token
-				res.json({ token: createToken(user) })
+				res.json({ user: user, token: createToken(user) })
 			})
 		})
 	})

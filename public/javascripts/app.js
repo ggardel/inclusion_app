@@ -1,4 +1,4 @@
-var app = angular.module("inclusion_app", ['ui.router'])
+var app = angular.module("inclusion_app", ['ui.router', 'ngFileUpload'])
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
@@ -21,6 +21,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 				requireLogin: true
 			}
 		})
+    .state("profile",{
+      url:"/profile",
+      controller:"ProfileController as profile",
+      templateUrl: "/partials/profile.html",
+      data: {
+						requireLogin: true
+					}
+    })
+
 })
 
 
