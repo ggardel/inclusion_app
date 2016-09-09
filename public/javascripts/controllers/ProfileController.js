@@ -12,30 +12,77 @@
       vm.user = UserService.user;
 
 
-   $scope.$watch(function(){
-       return vm.file
-   }, function (){
-      vm.upload(vm.file);
-   });
+ //   $scope.$watch(function(){
+ //       return vm.file
+ //   }, function (){
+ //      vm.upload(vm.file);
+ //   });
+ //
+ //
+ //
+ // vm.upload = function(file) {
+ //   if (file) {
+ //     Upload.upload({
+ //       url: '/profile/editPhoto',
+ //       method: 'POST',
+ //       data: {userId: vm.user._id},
+ //       file: file
+ //     }).progress(function(evt){
+ //       console.log("firing");
+ //     }).success(function(data){
+ //
+ //     }).error(function(error){
+ //       console.log(error);
+ //     })
+ //   }
+ // };
 
 
 
- vm.upload = function(file) {
-   if (file) {
-     Upload.upload({
-       url: '/profile',
-       method: 'POST',
-       data: {userId: vm.user._id},
-       file: file
-     }).progress(function(evt){
-       console.log("firing");
-     }).success(function(data){
 
-     }).error(function(error){
-       console.log(error);
-     })
-   }
- };
+
+
+
+
+
+  vm.upload = function() {
+       var file = document.querySelector('.imageFile').files[0]
+       if (!file || !file.type.match(/image.*/)) return;
+
+
+      //  console.log("file =", file)
+
+       /* Lets build a FormData object*/
+       var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+       fd.append("image", file); // Append the file
+
+       $.ajax({
+          url: "https://api.imgur.com/3/image.json",
+          type: "POST",
+          headers: {
+            Authorization: `Client-ID ec9f838baa778f7`
+          },
+          data: fd,
+          processData: false,
+          contentType: false
+        })
+        .then(function(result) {
+          console.log(result.data.link);
+
+      // send post to database (with returned imgur url)
+      $.ajax({
+        url: `/profile/${vm.user._id}/photo`,
+        type: "patch",
+        dataType: 'json',
+        data: {
+
+          image: result.data.link
+        }
+      })
+    })
+}
+
+
 
 
 
@@ -71,8 +118,16 @@ $http.post(`/profile/${vm.user._id}`, request).success(function(){
 
 };
 
+vm.checkBox = {
+  value1:true
+
+}
 
 
+//testing
+// vm.trace = function(){
+//   console.log("looking checkbox", vm.user.disability)
+// }
  vm.update = function () {
     var request = {
         userId: vm.user._id,
@@ -84,8 +139,8 @@ $http.post(`/profile/${vm.user._id}`, request).success(function(){
         disability: vm.user.disability
     }
 
- $http.patch(`/profile/${vm.user._id}`, request).success(function(){
-    console.log("success");
+ $http.patch(`/profile/${vm.user._id}`, request).success(function(data){
+    console.log("success", data);
  }).error(function(error){
     console.log("error");
  })
@@ -106,7 +161,7 @@ vm.createDisability = function () {
       console.log("Not disabled user");
     }
 
-$http.post(`/profile/${vm.user._id}`, request).success(function(){
+$http.post(`/profile/${vm.user._id}/disability`, request).success(function(){
     console.log("success")
 }).error(function(error){
     console.log(error);
@@ -122,16 +177,15 @@ vm.updateDisability = function () {
         age: vm.user.age,
         preferred_activity: vm.user.preferred_activity,
       }
-    }
+      $http.patch(`/profile/disability/${vm.user._id}`, request).success(function(response){
+          console.log(response)
+      }).error(function(error){
+      console.log(error);
+    })
+}
     else {
       console.log("Not disabled user");
     }
-
-$http.patch(`/profile/${vm.user._id}`, request).success(function(){
-    console.log("success")
-}).error(function(error){
-    console.log(error);
-});
 }
 
 
@@ -157,47 +211,59 @@ vm.createFacility = function (){
         phone: vm.facility.phone,
         email: vm.facility.email
       }
+      $http.post(`/profile/${vm.user._id}/facility`, request).success(function(response){
+          console.log("success", response)
+      }).error(function(error){
+          console.log(error);
+      });
     }
     else {
       console.log("Not disabled user");
     }
 
-$http.post(`/profile/${vm.user._id}/facility`, request).success(function(){
-    console.log("success")
-}).error(function(error){
-    console.log(error);
-});
 
+
+}
+
+vm.currentFacilityId = ''
+vm.currentFacility = {}
+
+vm.changeFacility = function () {
+  vm.currentFacility = vm.user.facilities.filter(function (facility) {
+    return facility._id == vm.currentFacilityId
+  })[0]
+  console.log(vm.currentFacility)
 }
 
 vm.updatefacility = function (){
   if(vm.user.disability == true) {
     var request = {
         userId: vm.user._id,
-        name: vm.facility.name,
-        address: vm.facility.address,
-        city: vm.facility.city,
-        state:vm.facility.state,
-        zip: vm.facility.zip,
-        description: vm.facility.description,
-        phone: vm.facility.phone,
-        email: vm.facility.email
+        name: vm.currentFacility.name,
+        address: vm.currentFacility.address,
+        city: vm.currentFacility.city,
+        state:vm.currentFacility.state,
+        zip: vm.currentFacility.zip,
+        description: vm.currentFacility.description,
+        phone: vm.currentFacility.phone,
+        email: vm.currentFacility.email
       }
-    }
-    else {
-      console.log("Not disabled user");
-    }
+      $http.post(`/profile/${vm.user._id}/facility/${vm.currentFacilityId}`, request).success(function(response){
+          console.log("success", response)
+      }).error(function(error){
+          console.log(error);
 
-$http.patch(`/profile/${vm.user._id}/facility`, request).success(function(){
-    console.log("success")
-}).error(function(error){
-    console.log(error);
-});
+       })
+     }
+
 
 }
 
+
+
+
 vm.deletefacility = function (){
-  $http.delete(`/profile/${vm.user._id}/facilities/${vm.facility._id}`, request).success(function(){
+  $http.delete(`/profile/${vm.user._id}/facilities/${vm.currentFacility._id}`, request).success(function(){
     console.log("Delete success")
   }).error(function(error){
     console.log(error);

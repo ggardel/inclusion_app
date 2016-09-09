@@ -9,15 +9,23 @@
    function UserService($window){
       var userData =  {
         setUser: setUser,
-        user: {}
+        user: {},
+        isLoggedIn: function () {
+          return localStorage.getItem('token') !== null
+        }
       }
 
       function setUser() {
-        var payload = $window.localStorage.token.split('.')[1];
-        var user = JSON.parse($window.atob(payload));
-        userData.user = user;
-      }
+        if ($window.localStorage.token){
+          var payload = $window.localStorage.token.split('.')[1];
+          var user = JSON.parse($window.atob(payload))._doc;
+          userData.user = user;
+        }
 
+
+        //console.log("token",$window.localStorage.token)
+      }
+      userData.setUser()
       return userData;
    }
 

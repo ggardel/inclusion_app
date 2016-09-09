@@ -74,9 +74,11 @@ function update(req, res, next) {
 			if(req.body.state) user.state = req.body.state;
 			if(req.body.email) user.email = req.body.email;
 			if(req.body.username) user.username = req.body.username;
-			if(req.body.disability == 'true') {
-				user.disability = true;}
-			else {user.disability = false;}
+      if(req.body.image) user.image = req.body.image;
+			// This line does not execute if req.body.disability is false
+			// if (req.body.disability) user.disability = req.body.disability;
+			user.disability = req.body.disability
+
 			user.save(function(err, user){
 				if (err) {
 					res.json({error: err})
@@ -125,7 +127,8 @@ function updateDisability(req, res, next){
 			res.json({message: 'No user with this Id.'});
 		} else if (user.disability == false) {
       res.json({message: 'Sorry you can not continue with the profile'} + err)
-    } else {
+    }
+		else {
       if(req.body.age) user.age = req.body.age;
       if(req.body.preferred_activity) user.preferred_activity = req.body.preferred_activity;
       if(req.body.bio) user.bio = req.body.bio;
@@ -152,37 +155,37 @@ function destroy(req, res, next){
 	})
 }
 
-function updatePhoto(req, res){
-  var file = req.files.file;
-  var userId = req.body.userId;
-
-  console.log("User " + userId + " is submitting ", file);
-  var uploadDate = new Date();
-
-  var tempPath = file.path;
-  var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
-  var savePath = "/uploads/" + userId + uploadDate + file.name;
-
-  fs.rename(tempPath, targetPath, function(err){
-    if(err){
-      console.log(err)
-    } else {
-      User.findById(userId, function(err, userData){
-        var user = userData;
-            user.image = savePath;
-            user.save(function(err){
-              if(err){
-                console.log("failed save")
-                res.json({status:500})
-              } else {
-                console.log("save successful");
-                res.json({status: 200})
-              }
-            })
-      })
-    }
-  })
-};
+// function updatePhoto(req, res){
+//   var file = req.files.file;
+//   var userId = req.body.userId;
+//
+//   console.log("User " + userId + " is submitting ", file);
+//   var uploadDate = new Date();
+//
+//   var tempPath = file.path;
+//   var targetPath = path.join(__dirname, "../../uploads/" + userId + uploadDate + file.name);
+//   var savePath = "/uploads/" + userId + uploadDate + file.name;
+//
+//   fs.rename(tempPath, targetPath, function(err){
+//     if(err){
+//       console.log(err)
+//     } else {
+//       User.findById(userId, function(err, userData){
+//         var user = userData;
+//             user.image = savePath;
+//             user.save(function(err){
+//               if(err){
+//                 console.log("failed save")
+//                 res.json({status:500})
+//               } else {
+//                 console.log("save successful");
+//                 res.json({status: 200})
+//               }
+//             })
+//       })
+//     }
+//   })
+// };
 
 
 function newFacility (req, res, next){
@@ -281,15 +284,13 @@ function deletefacility(req,res,next) {
 
 function editfacility(req,res,next) {
   User.findById(req.params.user_id, function(err, user) {
+		console.log(user)
     if (err) {
       res.json({message: `User not found ${err}`});
     }
-    else if (user.disability == false) {
-      res.json({message: `Not user with disability ${req.params.id}`});
-    }
-    else {
+     else {
       user.facilities.forEach(function(facility, index) {
-        if (facility._id == req.params.id) {
+      if (facility._id == req.params.id) {
           if(req.body.name) facility.name = req.body.name;
           if(req.body.address) facility.address = req.body.address;
           if(req.body.city) facility.city = req.body.city;
@@ -304,11 +305,13 @@ function editfacility(req,res,next) {
               res.json(user);
             };
           });
-        };
-      });
-    };
-  });
-};
+				};
+     })
+	 }
+ })
+
+}
+
 
 
 
@@ -320,7 +323,6 @@ module.exports = {
   delete: destroy,
   createDisability: createDisability,
   updateDisability: updateDisability,
-  updatePhoto: updatePhoto,
   newFacility: newFacility,
   showFacility: showFacility,
   showFacilities: showFacilities,

@@ -1,13 +1,20 @@
-<div id="login">
-	Username: <input ng-model="login.loginUsername">
-	Password: <input type="password" ng-model="login.loginPassword">
-	<button ng-click="login.login()">Login</button>
-</div>
 
-<div id="register">
-	Username: <input ng-model="login.registerUsername">
-	Password: <input type="password" ng-model="login.registerPassword">
-	<button ng-click="login.register()">Register</button>
-</div>
 
-<div>{{ login.errors }}</div>
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+			<div class="row" ng-hide="loginpage" ng-show="!loggedIn"id="login">
+				Username: <input ng-model="login.loginUsername">
+				Password: <input type="password" ng-model="login.loginPassword">
+				<button ng-click="login.login()">Login</button>
+			</div>
+		</div>
+	</div>
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+		<div ng-hide="registerpage" ng-show="!loggedIn"id="register">
+			Username: <input type="text" ng-model="login.registerUsername" class="form-control">
+			Password: <input type="text" type="password" ng-model="login.registerPassword" class="form-control">
+			<button ng-click="login.register()">Register</button>
+   </div>
+  </div>
+</div>

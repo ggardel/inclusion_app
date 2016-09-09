@@ -1,35 +1,119 @@
 
 
-<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController">
-
-<div class="row"><div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
-    accept="image/*" >Select</div></div>
-
-<div class="row">
-    <input class="form-control" ng-model="user.username" ng-blur="update.name">
+<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController as profile">
+  <input  type="file" class="imageFile">
+  <button class="button btn btn-success btn-sm s" ng-click="profile.upload()">Upload Photo</button>
 </div>
 
-<div class="row">
-    <textarea class="form-control" ng-model="profile.update" ng-blur="profile.update()"> </textarea>
+    </br>
+    </br>
+<div ng-controller="ProfileController as profile">
+<img ng-src="{{profile.user.image}}" alt=""></img>
 </div>
 
-    </div>
-{{ profile.user.name }}
+    </br>
+    </br>
 
 
-<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController">
-  <div class="row">name:
-      <input class="form-control" ng-model="user.username" ng-blur="update()">
+<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController as profile">
+
+      <form id="profile-form" class="form-inline">
+      <div class="row">
+        <input type="text"   placeholder="Name" class="form-control" ng-model="profile.user.name" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="Edit Username" class="form-control" ng-model="profile.user.username" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="Email" class="form-control" ng-model="profile.user.email" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="City" class="form-control" ng-model="profile.user.city" />
+      </div>
+
+      <div class="row">
+         <input type="text"  placeholder="State" class="form-control" ng-model="profile.user.state" />
+      </div>
+    </br>
+      <div class='row'>
+         <label>Mental Disability:
+          <input  type="checkbox" ng-click="profile.trace()" ng-model="profile.user.disability">
+        </label>
+      </div>
+    </br>
+    </br>
+      <button class="btn btn-success btn-sm s" type="submit" ng-click="profile.update()">Save My Profile</button>
+    </form>
+  </div>
+</div>
+
+</br>
+</br>
+
+<div id= "upadatedisability" class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController as profile" ng-show="profile.user.disability">
+
+      <form id="profile-form" class="form-inline">
+      <div class="row">
+        <input type="text"   placeholder="Age" class="form-control" ng-model="profile.user.age" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="About me:" class="form-control" ng-model="profile.user.bio" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="I like to: (read books, coloring, watch movies....)" class="form-control" ng-model="profile.user.preferred_activity" />
+      </div>
+       </br>
+       </br>
+      <button class="btn btn-success btn-sm s" type="submit" ng-click="profile.updateDisability()">Save My Profile</button>
+    </form>
+</div>
+
+</br>
+
+</br>
+
+
+<div class="col-sm-8 col-sm-offset-2" ng-controller="ProfileController as profile" ng-show="profile.user.disability">
+
+
+    <form name="myForm">
+     <label for="repeatSelect"> Facilities: </label>
+     <select ng-change="profile.changeFacility()" name="repeatSelect" id="repeatSelect" ng-model="profile.currentFacilityId">
+      <option ng-repeat="facility in profile.user.facilities" value="{{facility._id}}">{{facility.state}}</option>
+     </select>
+      </form>
+
+    </br>
 
 
       <form id="profile-form" class="form-inline">
-      <div class="form-group">
-        <input type="text"  id="pledge-content" placeholder="Name!" class="form-control" ng-model="profile.user.name" />
+      <div class="row">
+        <input type="text"   placeholder="Facility Name" class="form-control" ng-model="profile.currentFacility.name" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="Facility address:" class="form-control" ng-model="profile.currentFacility.address" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="City" class="form-control" ng-model="profile.currentFacility.city" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="State" class="form-control" ng-model="profile.currentFacility.state" />
       </div>
 
-      <button class="btn btn-success btn-sm s" type="submit" ng-click="profile.create(name)">Save My Name</button>
+      <div class="row">
+         <input type="text"  placeholder="Zip Code" class="form-control" ng-model="profile.currentFacility.zip" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="Email" class="form-control" ng-model="profile.currentFacility.email" />
+      </div>
+      <div class="row">
+         <input type="text"  placeholder="Phone" class="form-control" ng-model="profile.currentFacility.phone" />
+      </div><div class="row">
+         <input type="text"  placeholder="Description of the Facility (add name of person for donotions and volunteer)" class="form-control" ng-model="profile.currentFacility.description" />
+      </div>
+    </br>
+    </br>
+      <button class="btn btn-success btn-sm s" type="submit" ng-click="profile.updatefacility()">Save My Facility</button>
     </form>
-
   </div>
-
 </div>

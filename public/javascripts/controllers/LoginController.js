@@ -11,6 +11,8 @@ function LoginController ($http, $state) {
 	this.registerUsername = ''
 	this.registerPassword = ''
 	this.errors = ''
+  this.loggedIn = Boolean
+
 
 	this.login = function () {
 		$http.post("/login", {
@@ -21,8 +23,14 @@ function LoginController ($http, $state) {
 				self.errors = response.data.error
 			}
 			else if (response.data.token) {
-				localStorage.token = response.data.token
+				console.log("user login response -->", response.data)
+				localStorage.token = response.data.token;
+				localStorage.userId = response.data.user._id
+				this.loggedIn = true;
 				$state.go('user')
+			}
+			else {
+				this.loggedIn = false
 			}
 		})
 	}

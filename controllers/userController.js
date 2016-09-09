@@ -22,18 +22,20 @@ var getUsers = function(req, res, next){
 
 
 var followUser = function(req, res){
+	console.log(req.body)
 	var userId = req.body.userId,
 	    wasterId = req.body.wasterId;
 
-			User.findById(wasterId, function(err, waster){
-				waster.followers.push({userId: userId});
-				waster.save();
-			})
+	User.findById(wasterId, function(err, waster){
+		waster.followers.push({userId: userId});
+		waster.save();
+		res.json({ success: true })
+	})
 
-			User.findById(userId, function(err, follower){
-				follower.following.push({userId: wasterId});
-				follower.save();
-			})
+	User.findById(userId, function(err, follower){
+		follower.following.push({userId: wasterId});
+		follower.save();
+	})
 }
 
 

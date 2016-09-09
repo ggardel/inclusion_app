@@ -29,6 +29,22 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 						requireLogin: true
 					}
     })
+    .state('main', {
+      url: "/",
+      controller: "MainController",
+      templateUrl: "/partials/main.html",
+      data: {
+						requireLogin: true
+					}
+      })
+      .state('follow', {
+				url: "/follow-users",
+        controller: "FollowController",
+				templateUrl: "partials/follow.html",
+        data: {
+  						requireLogin: true
+  					}
+			})
 
 })
 

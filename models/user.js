@@ -27,7 +27,7 @@ var userSchema = new mongoose.Schema({
   disability: {type: Boolean, default: false},
   preferred_activity: String,
   facilityId: String,
-  facility: [facilitySchema],
+  facilities: [facilitySchema],
   bio: String,
   following: [{userId: String}],
   followers: [{userId: String}],

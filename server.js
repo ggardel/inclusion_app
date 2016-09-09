@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// var multipart = require('connect-multiparty');
+// var multipartMiddleware = multipart();
 
 //LOAD ENVIRONMENT VARIABLES
 require('dotenv').load()
@@ -30,11 +32,12 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
+// app.use(multipartMiddleware);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/node_modules', express.static(__dirname + "/node_modules"));
-app.use('/uploads', express.static(__dirname + "/uploads"));
+// app.use('/uploads', express.static(__dirname + "/uploads"));
 
 
 app.use('/', routes);

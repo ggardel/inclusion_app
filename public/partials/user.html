@@ -1,6 +1,54 @@
-Hi {{ user.username }}
+
+
+
+
+<div ng-controller="UserController as user">
+     Photo
+  <img ng-src="{{user.image}}" alt=""></img>
+</div>
+
+
+
+<div>
+  <h1>Welcome, {{user.username}}</h1>
+   </br>
+  <h2>Location: {{user.city}},  {{user.state}}</h2>
+   </br>
+  <h3>Email: {{user.email}}</h3>
+
+</br></br>
+<div ng-show="user.disability=true">
+<h2>{{user.bio}}</h2>
+
+ <div id='activityBox'>
+   <h3>I like to:</br>{{user.preferred_activity}}</h3>
+ </div>
+   </br></br>
+   <div id= "facilities" ng-repeat="facility in user.facilities">
+     {{facility.name }}
+   </div>
+
+ </br></br>
+ <div id= "following">
+   {{user.following}}
+ </div>
+</br></br>
+<div id= "follower">
+  {{user.follower}}
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
 <div id="logout">
 <button ng-click="user.logout();">Logout</button>
 </div>
-
-state {{user.state}}
