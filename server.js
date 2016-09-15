@@ -12,7 +12,8 @@ require('dotenv').load()
 
 //Connect to mongoose
 var mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost/inclusion_app")
+// mongoose.connect("mongodb://localhost/inclusion_app")
+mongoose.connect(process.env.MONGODB_URI);
 
 
 var routes = require('./routes/index');
@@ -28,7 +29,7 @@ app.set('view engine', 'jade');
 
 
 //uncomment after placing favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', favicon.ico ')))
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico ')));
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
