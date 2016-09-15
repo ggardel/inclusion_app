@@ -1,4 +1,4 @@
-var app = angular.module("inclusion_app", ['ui.router', 'ngFileUpload'])
+var app = angular.module("inclusion_app", ['ui.router'])
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
