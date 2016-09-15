@@ -42,7 +42,8 @@
        .then(function(result) {
         imgLink = result.data.link;
         console.log(result.data.link);
-        }
+}).then(function(d){
+
       // send post to database (with returned imgur url)
       $.ajax({
         url: `/profile/${vm.user._id}/photo`,
