@@ -1,20 +1,48 @@
 
+<div class="jumbotron" style="background-image: url('http://i.imgur.com/66RES7v.jpg?1');height:850px; width:100%;  background-repeat: no-repeat;" >
+     <h1 style="color: white; font-size: 100px; position: relative; font-style: italic; text-shadow: 2px 2px 4px #000000; font-weight: bolder; font-family: fantasy; padding-left: 600px; ">Inclusion.com</h1>
+<div class="container" class="row log" ng-if="login.userService.loginRequest">
 
-<div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-			<div class="row" ng-hide="loginpage" ng-show="!loggedIn"id="login">
-				Username: <input ng-model="login.loginUsername">
-				Password: <input type="password" ng-model="login.loginPassword">
-				<button ng-click="login.login()">Login</button>
+    <div class="col-sm-4 col-sm-offset-3">
+			<div id="login">
+				Username: <input type="text" ng-model="login.loginUsername"class="form-control" >
+				Password: <input type="text"  type="password" ng-model="login.loginPassword" class="form-control">
+				<button  ng-click="login.login()">Login</button>
 			</div>
 		</div>
 	</div>
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3">
-		<div ng-hide="registerpage" ng-show="!loggedIn"id="register">
+</br>
+</br>
+
+<div class="row log" ng-if="login.userService.registerRequest">
+  <div class="col-sm-4 col-sm-offset-3">
+		<div id="loginPage">
 			Username: <input type="text" ng-model="login.registerUsername" class="form-control">
 			Password: <input type="text" type="password" ng-model="login.registerPassword" class="form-control">
 			<button ng-click="login.register()">Register</button>
    </div>
   </div>
 </div>
+
+<div>
+
+<!-- style="background-image: url('http://i.imgur.com/cTwY8ZF.jpg');"
+  <div class="jumbotron">
+    <div class="container">
+      ...
+    </div>
+  </div> -->
+
+  <!-- <div >
+  <div style="height: 305px">
+    <div uib-carousel active="login.active" interval="login.myInterval" no-wrap="login.noWrapSlides">
+      <div uib-slide ng-repeat="slide in login.slides track by slide.id" index="slide.id">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+          <h4>Slide {{slide.id}}</h4>
+          <p>{{slide.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

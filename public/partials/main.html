@@ -13,7 +13,7 @@
         <tr > <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">There are {{difference}} new wastes</a></tr>
         <tr ng-repeat="waste in wastes">
             <td>{{waste.user}}
-                <image ng-src="{{waste.userImage}}" class="img-responsive">
+                <image ng-src="{{waste.userImage}}" class="img-responsive" style="height: auto; max-width: 250px;">
             </td>
 
             <td>

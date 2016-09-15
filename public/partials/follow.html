@@ -1,6 +1,7 @@
 <ul>
-	<li ng-repeat="waster in users"
-		ng-show="user._id !== waster._id"> {{waster.email}}
+	<li ng-repeat="waster in users" ng-show="user._id !== waster._id">
+		 <img src="{{waster.image}}" alt="" style="height: auto; max-width: 250px;">  - {{waster.name}} - {{waster.email}} -
+		  {{waster.bio}}
 		<a ng-click="follow(user._id, waster._id)"
 		   ng-hide="showFollow">follow</a>
 		<a ng-click="unfollow(user._id, waster._id)"

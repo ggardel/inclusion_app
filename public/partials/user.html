@@ -1,54 +1,40 @@
 
 
+<div class="container">
+   <div class="row" style="border-radius: 20px; border-color: black solid; padding-top:40px; background-color:rgba(87, 76, 76, 0.36); margin-top:60px; box-shadow: 10px 10px 5px grey;">
+     <div class="col-xs-6" ng-controller="UserController as user">
+        {{user.username}} Photo
+        <img ng-src="{{user.image}}" style="height: auto; max-width: 250px; box-shadow: 10px 10px 2px grey;" alt=""></img>
+     </div>
 
 
-<div ng-controller="UserController as user">
-     Photo
-  <img ng-src="{{user.image}}" alt=""></img>
-</div>
 
+   <div class="col-xs-6">
+      <h1 style="font-size: 42px;text-shadow: 2px 4px 4px #f4e9e9;">Welcome, {{user.name}}</h1>
+        <h2 style="font-size: 26px; font-style: italic;">Location: {{user.city}},  {{user.state}}</h2>
+       </br>
+          <h3>Email: {{user.email}}</h3>
+       </br></br>
+     <div ng-show="user.disability=true">
+        <h2>{{user.bio}}</h2>
 
-
-<div>
-  <h1>Welcome, {{user.username}}</h1>
-   </br>
-  <h2>Location: {{user.city}},  {{user.state}}</h2>
-   </br>
-  <h3>Email: {{user.email}}</h3>
-
-</br></br>
-<div ng-show="user.disability=true">
-<h2>{{user.bio}}</h2>
-
- <div id='activityBox'>
-   <h3>I like to:</br>{{user.preferred_activity}}</h3>
- </div>
-   </br></br>
-   <div id= "facilities" ng-repeat="facility in user.facilities">
-     {{facility.name }}
+        <div id='activityBox'>
+           <h3></br>{{user.preferred_activity}}</h3>
+        </div>
+         </br></br>
+          <div id= "facilities" ng-repeat="facility in user.facilities">
+            <h4>Facility</h4>
+            <h3>{{facility.name }}</h3>
+           </br>
+             <h4>{{facility.description}}</h4>
+           </br>
+             <h4>For Donations or Volunteer opportunities:</h4>
+             <p>Phone: {{facility.phone}}</p>
+             <p>Email: {{facility.email}}</p>
+             <p>Address: {{facility.address}}</p>
+             <p>{{facility.city}}, {{facility.state}} - {{facility.zip}}</p>
+           </div>
+         </div>
+       </div>
+     </div>
    </div>
-
- </br></br>
- <div id= "following">
-   {{user.following}}
- </div>
-</br></br>
-<div id= "follower">
-  {{user.follower}}
-</div>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-</div>
-<div id="logout">
-<button ng-click="user.logout();">Logout</button>
-</div>

@@ -5,12 +5,16 @@ UserController.$inject = ['$http', '$state', 'UserService']
 
 function UserController ($http, $state, UserService ) {
 	var self = this
-  self.userService = UserService; 
+  self.userService = UserService;
 	self.user = UserService.user;
 
 
-	self.test = function (){
-	console.log("testing")
+	self.login = function (){
+	self.userService.loginRequest = true;
+	}
+
+	self.register = function (){
+	self.userService.registerRequest = true;
 	}
 
 

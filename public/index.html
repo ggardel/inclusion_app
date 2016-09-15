@@ -12,19 +12,25 @@
 
 
 </head>
-<body>
+<body style="margin-top: 40px; padding: 20px; background-color: rgb(229, 240, 211)" >
 
-	<nav class="navbar navbar-default navbar-fixed-top" ng-controller="UserController as user" >
+	<nav class="navbar navbar-inverse navbar-fixed-top stylenav" ng-controller="UserController as user"  style="color: white; font-size: 20px;" >
 				<!-- Partials inserted here -->
-    <div class="container"  ng-show="user.userService.isLoggedIn()">
-			  <a ui-sref="user" ng-click="user.test()">My Profile</a>
-				<a ui-sref="follow">Follow Users</a>
-				<a ng-show="!loggedIn" ui-sref="profile">Edit Profile</a>
-				<a ui-sref="main">Messages</a>
-				<a ng-click="user.logout();">Logout</a>
-
+    <div class="container" ng-show="user.userService.isLoggedIn()">
+     <ul class="nav navbar-nav">
+				<li><a ui-sref="user">My Profile</a></li>
+				<li><a ui-sref="follow">Follow Users</a></li>
+			  <li><a ui-sref="profile">Edit Profile</a></li>
+				<li><a ui-sref="main">Messages</a></li>
+				<li><a ng-click="user.logout()">Logout</a></li>
+      </ul>
     </div>
-
+    <divclass="container" ng-show="!user.userService.isLoggedIn()">
+     <ul class="nav navbar-nav">
+			<li><a ng-click ="user.login()">Login</a></li>
+			<li><a  ng-click="user.register()">Register</a></li>
+		</ul>
+		</div>
 	</nav>
 
 

@@ -10,6 +10,9 @@
       var userData =  {
         setUser: setUser,
         user: {},
+        loginRequest: false,
+        registerRequest: false,
+
         isLoggedIn: function () {
           return localStorage.getItem('token') !== null
         }

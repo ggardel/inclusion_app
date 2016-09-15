@@ -1,18 +1,17 @@
 angular.module("inclusion_app")
 	.controller("LoginController", LoginController)
 
-LoginController.$inject = ['$http', '$state']
+LoginController.$inject = ['$http', '$state', 'UserService' ]
 
-function LoginController ($http, $state) {
+function LoginController ($http, $state, UserService) {
 	var self = this
-
+  this.userService = UserService
 	this.loginUsername = ''
 	this.loginPassword = ''
 	this.registerUsername = ''
 	this.registerPassword = ''
 	this.errors = ''
   this.loggedIn = Boolean
-
 
 	this.login = function () {
 		$http.post("/login", {
@@ -35,6 +34,10 @@ function LoginController ($http, $state) {
 		})
 	}
 
+
+
+
+
 	this.register = function () {
 		$http.post("/register", {
 			username: self.registerUsername,
@@ -45,7 +48,7 @@ function LoginController ($http, $state) {
 			}
 			else if (response.data.token) {
 				localStorage.token = response.data.token
-				$state.go('user')
+				$state.go('profile')
 			}
 		})
 	}

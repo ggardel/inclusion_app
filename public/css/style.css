@@ -1,9 +1,9 @@
-body {
+/*body {
   margin-top: 70px;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;*/
 
-}
+}*/
 
 a {
   color: #00B7FF;
@@ -12,4 +12,71 @@ a {
 .waste-section img {
     width: 100px;
     height: 100px;
+}
+
+/*.jumbotron {
+  background-image: url(<a href="http://imgur.com/eZzu5tB"><img src="http://i.imgur.com/eZzu5tB.jpg" title="source: imgur.com" /></a>);
+  height: 600px%;
+  background-repeat: no-repeat;
+
+}*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+   display: inline;
+    float: left;
+}
+a {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+a:active {
+    color: black;
+}
+
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+#loginPage{
+    width: 40vw;
+    background: rgba(0,0,0,0.4);
+    padding: 2% 5%;
+    border-radius: 50px;
+    left: 30vw;
+    position: fixed;
+    top: 20vh;
+
+}
+.log {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.stylenav {
+  color: white;
+  font-size: 20px;
+    display: inline-flex;
+    position: absolute;
+    background: rgba(0,0,0,0.3);
+
+}
+.navbar-reverse {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
 }

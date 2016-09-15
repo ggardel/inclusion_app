@@ -12,36 +12,6 @@
       vm.user = UserService.user;
 
 
- //   $scope.$watch(function(){
- //       return vm.file
- //   }, function (){
- //      vm.upload(vm.file);
- //   });
- //
- //
- //
- // vm.upload = function(file) {
- //   if (file) {
- //     Upload.upload({
- //       url: '/profile/editPhoto',
- //       method: 'POST',
- //       data: {userId: vm.user._id},
- //       file: file
- //     }).progress(function(evt){
- //       console.log("firing");
- //     }).success(function(data){
- //
- //     }).error(function(error){
- //       console.log(error);
- //     })
- //   }
- // };
-
-
-
-
-
-
 
 
 
