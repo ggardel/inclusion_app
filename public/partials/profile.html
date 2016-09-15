@@ -1,8 +1,8 @@
 
 <div class="container">
   <div class="row">
-     <div class="col-sm-3 col-sm-offset-2" ng-controller="ProfileController as profile">
-        <div ng-controller="ProfileController as profile">
+     <div class="col-sm-3 col-sm-offset-2">
+        <div>
           <img ng-src="{{profile.user.image}}" alt="" style="height: auto; max-width: 250px;"></img>
         </div>
            </br>
@@ -13,7 +13,7 @@
            </br>
            </br>
   <div class="col-sm-6 col-sm-offset-2" >
-     <div  ng-controller="ProfileController as profile">
+     <div >
         <form id="profile-form" >
           <div class="row">
              <input type="text"   placeholder="Name" class="form-control" ng-model="profile.user.name" />
@@ -45,7 +45,7 @@
           </br>
           </br>
 
-     <div id= "upadatedisability" ng-controller="ProfileController as profile" ng-show="profile.user.disability">
+     <div id= "upadatedisability" ng-show="profile.user.disability">
         <form id="profile-form" >
           <div class="row">
             <input type="text"   placeholder="Age" class="form-control" ng-model="profile.user.age" />
@@ -66,7 +66,7 @@
         </br>
 
 
-      <div ng-controller="ProfileController as profile" ng-show="profile.user.disability">
+      <div ng-show="profile.user.disability">
          <form name="myForm">
            <label for="repeatSelect"> Facilities: </label>
              <select ng-change="profile.changeFacility()" name="repeatSelect" id="repeatSelect" ng-model="profile.currentFacilityId">
