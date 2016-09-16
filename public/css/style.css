@@ -5,7 +5,7 @@
 
 
 
-a {
+/*a {
   color: #00B7FF;
 }
 
@@ -20,7 +20,7 @@ a {
   background-repeat: no-repeat;
 
 }*/
-ul {
+/*ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -48,12 +48,12 @@ li a {
 a:active {
     color: black;
 }
-
+*/
 
 /* Change the link color to #111 (black) on hover */
-li a:hover {
+/*li a:hover {
     background-color: #111;
-}
+}*/
 #loginPage{
     width: 40vw;
     background: rgba(0,0,0,0.4);
@@ -64,7 +64,7 @@ li a:hover {
     top: 20vh;
 
 }
-.log {
+/*.log {
     margin-right: -15px;
     margin-left: -15px;
 }
@@ -80,3 +80,4 @@ li a:hover {
     background-color: #f8f8f8;
     border-color: #e7e7e7;
 }
+*/

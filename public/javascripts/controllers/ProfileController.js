@@ -3,10 +3,10 @@
   .controller('ProfileController', ProfileController);
 
 
-  ProfileController.$inject = ['Upload', '$scope', 'UserService', '$state', '$http', '$window'];
+  ProfileController.$inject = ['$scope', 'UserService', '$state', '$http', '$window'];
 
 
-  function ProfileController( Upload, $scope, UserService, $state, $http, $window){
+  function ProfileController($scope, UserService, $state, $http, $window){
     var vm = this;
 
     vm.user = UserService.user;
@@ -23,7 +23,7 @@
      if (!file || !file.type.match(/image.*/)) return;
 
 
-      //  console.log("file =", file)
+       console.log("file =", file)
 
       /* Lets build a FormData object*/
        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
