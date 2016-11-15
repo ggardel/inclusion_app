@@ -18,11 +18,11 @@ Technology used:
 
 <a href="http://imgur.com/dP9kWr9"><img src="http://i.imgur.com/dP9kWr9m.png" title="source: imgur.com" /></a>
 
-<a href="http://imgur.com/GVUOQqu"><img src="http://i.imgur.com/GVUOQqum.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/GVUOQqu"><img src="http://i.imgur.com/GVUOQqu.png" title="source: imgur.com" /></a>
 
-<a href="http://imgur.com/wZewot5"><img src="http://i.imgur.com/wZewot5m.gif" title="source: imgur.com" /></a>
+<a href="http://imgur.com/wZewot5"><img src="http://i.imgur.com/wZewot5.gif?1" title="source: imgur.com" /></a>
 
-<a href="http://imgur.com/Syj0Mib"><img src="http://i.imgur.com/Syj0Mibm.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/Syj0Mib"><img src="http://i.imgur.com/Syj0Mib.png" title="source: imgur.com" /></a>
 
 <a href="http://imgur.com/ygVBgoY"><img src="http://i.imgur.com/ygVBgoY.png" title="source: imgur.com" /></a>
 
