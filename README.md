@@ -8,6 +8,10 @@ inclusion_app is a Social Network dedicated for people with Mental Disability, g
 
 INCLUSION.COM- Social Network to facilitate socialization and inclusion of mental disabled people in someone’s circle of friends. Offering donation an volunteer opportunities. Built in 1 week sprint using MEAN stack (MongoDB, Express, Angular and Nodejs), JavaScript, JQuery, UI-Bootstrap, HTML5 and CSS3.
 
+You can see the full app here:
+
+https://inclusion-com.herokuapp.com/#/login
+
 Technology used:
 
 <a href="http://imgur.com/7URjEcl"><img src="http://i.imgur.com/7URjEcl.png" title="source: imgur.com" /></a>
