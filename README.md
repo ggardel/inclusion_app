@@ -10,7 +10,7 @@ INCLUSION.COM- Social Network to facilitate socialization and inclusion of menta
 
 Technology used:
 
-<a href="http://imgur.com/7URjEcl"><img src="http://i.imgur.com/7URjEclm.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/7URjEcl"><img src="http://i.imgur.com/7URjEcl.png" title="source: imgur.com" /></a>
 
 <a href="http://imgur.com/KUmAirW"><img src="http://i.imgur.com/KUmAirWm.jpg" title="source: imgur.com" /></a>
 
@@ -24,6 +24,5 @@ Technology used:
 
 <a href="http://imgur.com/Syj0Mib"><img src="http://i.imgur.com/Syj0Mibm.png" title="source: imgur.com" /></a>
 
-<a href="http://imgur.com/ygVBgoY"><img src="http://i.imgur.com/ygVBgoYm.png" title="source: imgur.com" /></a>
-
+<a href="http://imgur.com/ygVBgoY"><img src="http://i.imgur.com/ygVBgoY.png" title="source: imgur.com" /></a>
 
